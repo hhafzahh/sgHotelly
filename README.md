@@ -1,4 +1,4 @@
-# BookingApp
+# SGHotelly
 
 ## Purpose
 ### Problem Statement
