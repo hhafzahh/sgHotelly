@@ -1,0 +1,27 @@
+.border{
+    width:max-content;
+    padding:10px;
+}
+.btn{
+    width: 100px;
+    margin-right:10px;
+}
+.fa{
+    
+    margin-right: 10px;
+}
+.container{
+    margin-top: 4%;
+    
+}
+.card-body{
+    background-color: cornsilk;
+}
+.jumbotron{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+}
+table .btn{
+    margin: 2px;
+  }

@@ -1,0 +1,282 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" class="col d-flex justify-content-center">
+        <form
+          [formGroup]="myForm"
+          (ngSubmit)="onSubmit()"
+          class="form-container"
+          class="box"
+        >
+          <h1>Register</h1>
+          <h2 style="color: antiquewhite" class="h4 mb-3">
+            No account? Sign up
+          </h2>
+          <p class="text-muted mb-4">
+            Registration takes less than a minute but gives you more permissions
+            as a user!
+          </p>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <p>
+                  <input
+                    class="text-muted"
+                    formControlName="firstName"
+                    id="name"
+                    placeholder="Your first name"
+                    type="text"
+                    required
+                  />
+                </p>
+                <ng-container
+                  *ngFor="let validation of validationUserMessage.firstName"
+                >
+                  <div
+                    class="error_message"
+                    *ngIf="
+                      myForm.get('firstName').hasError(validation.type) &&
+                      (myForm.get('firstName').dirty ||
+                        myForm.get('firstName').touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <p>
+                  <input
+                    class="text-muted"
+                    formControlName="lastName"
+                    id="name"
+                    placeholder="Your last name "
+                    type="text"
+                    required
+                  />
+                </p>
+                <ng-container
+                  *ngFor="let validation of validationUserMessage.lastName"
+                >
+                  <div
+                    class="error_message"
+                    *ngIf="
+                      myForm.get('lastName').hasError(validation.type) &&
+                      (myForm.get('lastName').dirty ||
+                        myForm.get('lastName').touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <p>
+                  <input
+                    formControlName="username"
+                    class="text-muted"
+                    id="username"
+                    placeholder="Your username"
+                    type="text"
+                    required
+                  />
+                </p>
+                <ng-container
+                  *ngFor="let validation of validationUserMessage.username"
+                >
+                  <div
+                    class="error_message"
+                    *ngIf="
+                      myForm.get('username').hasError(validation.type) &&
+                      (myForm.get('username').dirty ||
+                        myForm.get('username').touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <p>
+                  <input
+                    class="text-muted"
+                    formControlName="mobileNum"
+                    id="mobileNum"
+                    placeholder="Your phone number"
+                    type="text"
+                    required
+                  />
+                </p>
+                <ng-container
+                  *ngFor="let validation of validationUserMessage.mobileNum"
+                >
+                  <div
+                    class="error_message"
+                    *ngIf="
+                      myForm.get('mobileNum').hasError(validation.type) &&
+                      (myForm.get('mobileNum').dirty ||
+                        myForm.get('mobileNum').touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <p>
+                  <input
+                    formControlName="email"
+                    class="text-muted"
+                    id="email"
+                    placeholder="Your email"
+                    type="text"
+                    required
+                  />
+                </p>
+                <ng-container
+                  *ngFor="let validation of validationUserMessage.email"
+                >
+                  <div
+                    class="error_message"
+                    *ngIf="
+                      myForm.get('email').hasError(validation.type) &&
+                      (myForm.get('email').dirty || myForm.get('email').touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <p>
+                  <input
+                    formControlName="role"
+                    class="text-muted"
+                    id="role"
+                    placeholder="user/ hotel admin /admin"
+                    type="text"
+                    required
+                  />
+                </p>
+                <ng-container
+                  *ngFor="let validation of validationUserMessage.role"
+                >
+                  <div
+                    class="error_message"
+                    *ngIf="
+                      myForm.get('role').hasError(validation.type) &&
+                      (myForm.get('role').dirty || myForm.get('role').touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-sm-6" formGroupName="pwSet">
+              <div class="form-group">
+                <p>
+                  <input
+                    formControlName="password"
+                    id="password"
+                    class="text-muted"
+                    type="password"
+                    placeholder="Your password"
+                    required
+                  />
+                </p>
+                <ng-container
+                  *ngFor="let validation of validationUserMessage.pwSet"
+                >
+                  <div
+                    class="error_message"
+                    *ngIf="
+                      myForm.get('pwSet.password').hasError(validation.type) &&
+                      (myForm.get('pwSet.password').dirty ||
+                        myForm.get('pwSet.password').touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="col-sm-6" formGroupName="pwSet">
+              <div class="form-group">
+                <p>
+                  <input
+                    formControlName="retype"
+                    id="password"
+                    class="text-muted"
+                    type="password"
+                    placeholder="Retype your password"
+                    required
+                  />
+                </p>
+                <ng-container
+                  *ngFor="let validation of validationUserMessage.pwSet"
+                >
+                  <div
+                    class="error_message"
+                    *ngIf="
+                      myForm.get('pwSet.retype').hasError(validation.type) &&
+                      (myForm.get('pwSet.retype').dirty ||
+                        myForm.get('pwSet.retype').touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <ng-container
+                *ngFor="let validation of validationUserMessage.pwSet"
+              >
+                <div
+                  class="error_message"
+                  *ngIf="
+                    myForm.get('pwSet').hasError(validation.type) &&
+                    (myForm.get('pwSet').dirty || myForm.get('pwSet').touched)
+                  "
+                >
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <div class="col-sm-12">
+              <p>
+                <button
+                  [disabled]="!myForm.valid"
+                  type="button"
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Sign Up
+                </button>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

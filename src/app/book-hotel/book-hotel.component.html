@@ -1,0 +1,185 @@
+<app-hotel-detail></app-hotel-detail>
+<ng-template #content let-modal style="width: 60%">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Book Your Hotel Now</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div>
+        <div class="modal-content" *ngFor="let hotel of hotels">
+          <div class="p-1 px-3 bg-white">
+            <div class="d-flex flex-row align-items-center">
+              <h6>{{ hotel.name }}</h6>
+              <span class="ratings ml-2">
+                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </span>
+            </div>
+            <div class="mt-0 d-flex justify-content-between">
+              <span>2 Rooms For this Hotel</span>
+            </div>
+          </div>
+          <div class="px-5 p-2 listing">
+            <div class="p-2 listing-child mt-1 d-flex flex-row">
+              <img src="{{ hotel.images[2] }}" width="150" class="rounded" />
+
+              <div
+                class="d-flex flex-column ml-2"
+                *ngFor="let i of hotel.standardQueen"
+              >
+                <h5>{{ i.name }}</h5>
+                <div class="d-flex flex-row room-spec">
+                  <span> <i class="fa fa-bed text-muted"></i> {{ i.bed }}</span>
+                </div>
+                <div>
+                  <p style="font-size: 12px">Features :</p>
+                  <ul style="font-size: 12px">
+                    <li>{{ i.features[0] }}</li>
+                    <li>{{ i.features[1] }}</li>
+                    <li>{{ i.features[2] }}</li>
+                    <li>{{ i.features[3] }}</li>
+                    <li>{{ i.features[4] }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-3 bg-white border-bottom"
+              *ngFor="let i of hotel.standardQueen"
+            >
+              <div class="info">
+                <span
+                  ><i class="fa fa-info-circle text-muted"></i>
+                  <small class="text-muted">Non Refundable</small></span
+                >
+                <span
+                  ><i class="fa fa-car text-muted"></i>
+                  <small class="spec-text-color">Free Parking</small></span
+                >
+              </div>
+              <div class="d-flex justify-content-between mt-3">
+                <div class="form-check ml-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    value="{{ i.name }}"
+                    (change)="onItemChange($event.target.value)"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                    checked
+                  />
+                </div>
+                <div class="d-flex flex-row align-items-center spec">
+                  <span class="text-primary font-weight-bold">{{
+                    i.price
+                  }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 listing-child mt-1 d-flex flex-row">
+              <img src="{{ hotel.images[3] }}" width="150" class="rounded" />
+              <div
+                class="d-flex flex-column ml-2"
+                *ngFor="let i of hotel.superiorRoom"
+              >
+                <h5>{{ i.name }}</h5>
+                <div class="d-flex flex-row room-spec">
+                  <span> <i class="fa fa-bed text-muted"></i> {{ i.bed }}</span>
+                </div>
+                <div>
+                  <p style="font-size: 12px">Features :</p>
+                  <ul style="font-size: 12px">
+                    <li>{{ i.features[0] }}</li>
+                    <li>{{ i.features[1] }}</li>
+                    <li>{{ i.features[2] }}</li>
+                    <li>{{ i.features[3] }}</li>
+                    <li>{{ i.features[4] }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-3 bg-white border-bottom"
+              *ngFor="let i of hotel.superiorRoom"
+            >
+              <div class="info">
+                <span
+                  ><i class="fa fa-check text-muted"></i>
+                  <small class="spec-text-color">Free Cancellation</small></span
+                >
+                <span
+                  ><i class="fa fa-car text-muted"></i>
+                  <small class="spec-text-color">Free Parking</small></span
+                >
+              </div>
+              <div class="d-flex justify-content-between mt-3">
+                <div class="form-check ml-2">
+                  <input
+                    class="form-check-input"
+                    value="{{ i.name }}"
+                    (change)="onItemChange($event.target.value)"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                  />
+                </div>
+                <div class="d-flex flex-row align-items-center spec">
+                  <span class="text-primary font-weight-bold">{{
+                    i.price
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-2 px-3 border-bottom">
+            <div class="row">
+              <div class="col-md-6"></div>
+            </div>
+          </div>
+          <div class="complete p-3 mt-2">
+            <div class="text-left">
+              <span class="d-block">Cancellation Policy</span>
+              <span class="text-success"
+                >Until 23 Dec 23:00 GMT 100% Money Back</span
+              >
+            </div>
+            <div class="text-center mt-4 mb-4">
+              <button
+                [routerLink]="['/payment', hotel.id]"
+                class="btn btn-danger booking"
+              >
+                Complete Booking,Proceeed to Payment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-danger" (click)="open(content)">
+  Book Hotel
+</button>
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

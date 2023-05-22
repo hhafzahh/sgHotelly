@@ -1,0 +1,71 @@
+<div class="jumbotron big-banner" style="height: 500px; padding-top: 150px">
+  <div class="divColor">
+    <h1 style="text-align: center; color: white">HOTELS & HOMES</h1>
+  </div>
+  <div class="container">
+    <div class="display-2 ml-4">
+      <label>Filter Hotel </label>
+      <input placeholder="Type to filter" [(ngModel)]="cdMsg" />
+      <button type="button" (click)="onVenueFilter()">Search</button>
+      <button type="button" (click)="onVenueFilterClear()">Clear</button>
+
+      <label> Sort by &nbsp; </label>
+      <select [(ngModel)]="SortbyParam">
+        <option value="name">Venue</option>
+        <option value="startingPrice">Price</option>
+      </select>
+      <button class="button1" type="button" (click)="onSortDirection()">
+        Sort
+        <!-- later design the up button and down button for better interactivity-->
+      </button>
+    </div>
+  </div>
+</div>
+
+<br />
+<button
+  class="btn btn-warning"
+  *ngIf="userRole == 'admin'"
+  (click)="addHotel()"
+  [routerLink]="['/add']"
+>
+  Add Hotel
+</button>
+<br />
+
+<div class="row">
+  <div
+    *ngFor="
+      let hotel of hotels
+        | filter: SearchHotels:'cdMsg'
+        | sort: [SortbyParam, SortDirection]
+    "
+    class="column"
+  >
+    <a [routerLink]="['/detail', hotel.id]">
+      <span class="badge">{{ hotel.id }}</span>
+      <h8>{{ hotel.name }}</h8>
+      <img class="size" src="{{ hotel.displayImage }}" />
+    </a>
+    <p>Venue :{{ hotel.name }}, Keeper name: {{ hotel.keepername }}</p>
+    <p>
+    {{hotel.description | slice:0:100}}
+    </p>
+    <button
+      class="btn btn-outline-info"
+      style="padding-right: 10px; margin-right: 12px"
+      *ngIf="userRole == 'admin' || userRole =='hotelAdmin' "
+      [routerLink]="['/edit', hotel._id]"
+      (click)="editHotel()"
+    >
+      Edit Hotel
+    </button>
+    <button
+      class="btn btn-danger"
+      *ngIf="userRole == 'admin' "
+      (click)="deleteHotel(hotel._id)"
+    >
+      Delete Hotel
+    </button>
+  </div>
+</div>

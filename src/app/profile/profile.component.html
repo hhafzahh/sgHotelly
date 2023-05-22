@@ -1,0 +1,220 @@
+<p>profile works!</p>
+<h1 style="text-align: center;margin-top: 50px;">Account Details</h1>
+<div class="container">
+    <div class="main-body">
+    
+          
+    
+          <div class="row gutters-sm" *ngFor = "let i of user ">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <i class="fa fa-user"></i>
+                    <div class="mt-3">
+                      <h4>{{i.username}}</h4>
+                      <p class="text-secondary mb-1">{{i.role}}</p>
+                   
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mt-3">
+                
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {{i.firstName}} {{i.lastName}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.email}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {{i.mobileNum}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mobile</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{i.mobileNum}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Password</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{i.password}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- open modal that id is contentEdit with i( which is the values)-->
+                      <a class="btn btn-info "(click)="openEdit(contentEdit,i)">Edit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gutters-sm">
+               
+                
+
+
+
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+    <ng-template #contentEdit let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Edit User</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form
+            [formGroup]="editForm">
+
+            <div class="form-group">
+                <label for="_id">ID</label>
+                <div class="input-group">
+                  <input
+                  class="input-group"
+                  formControlName="_id"
+                 
+                  placeholder="Your id"
+                  type="text"
+                  required readonly
+                />
+                </div>
+              </div>
+            
+            <div class="form-group">
+              <label for="firstname">Firstname</label>
+              <div class="input-group">
+                <input
+                class="input-group"
+                formControlName="firstName"
+                id="firstName"
+                placeholder="Your first name"
+                type="text"
+                required 
+              />
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <div class="input-group">
+                  <input
+                  class="input-group"
+                  formControlName="lastName"
+                  id="lastName"
+                  placeholder="Your last name"
+                  type="text"
+                  required
+                />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mobileNum">Mobile Number</label>
+                <div class="input-group">
+                  <input
+                  class="input-group"
+                  formControlName="mobileNum"
+                  id="mobileNum"
+                  placeholder="Your mobile number "
+                  type="text"
+                  required
+                />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email </label>
+                <div class="input-group">
+                  <input
+                  class="input-group"
+                  formControlName="email"
+                  id="mobileNum"
+                  placeholder="Your email "
+                  type="text"
+                  required
+                />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="username">Username </label>
+                <div class="input-group">
+                  <input
+                  class="input-group"
+                  formControlName="username"
+                  id="username"
+                  placeholder="Your username "
+                  type="text"
+                  required readonly
+                />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password </label>
+                <div class="input-group">
+                  <input
+                  class="input-group"
+                  formControlName="password"
+                  id="password"
+                  placeholder="Your password "
+                  type="password"
+                  required
+                />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="role">Role </label>
+                <div class="input-group">
+                  <input
+                  class="input-group"
+                  formControlName="role"
+                  id="role"
+                  placeholder="user/hotelAdmin/Admin"
+                  type="text"
+                  required readonly
+                />
+                </div>
+              </div>
+              <div class="border text-center">
+                <button (click)="onSave()" data-dismiss="modal" class="btn btn-info">Save Changes</button>
+                </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>

@@ -1,0 +1,45 @@
+
+<div *ngFor="let hotel of hotels" id="content-wrapper">
+		
+
+
+
+    <div class="tm-container-inner tm-history">
+      <div class="row">
+        <div class="col-12">
+          <div class="tm-history-inner">
+            <div class="column">
+              <img id=featured src="{{hotel.displayImage}}" class="img-fluid tm-history-img">
+      
+              <div id="slide-wrapper" >
+                  <img id="slideLeft" class="arrow" src="{{hotel.images[0]}}">
+      
+                  <div id="slider">
+                      <img class="thumbnail active" src="{{hotel.images[1]}}">
+                      <img class="thumbnail" src="{{hotel.images[2]}}">
+                      <img class="thumbnail" src="{{hotel.images[3]}}">
+                      <img class="thumbnail" src="{{hotel.images[4]}}">
+                      <img class="thumbnail" src="{{hotel.images[5]}}">
+                      <img class="thumbnail" src="{{hotel.images[6]}}">
+                      <img class="thumbnail" src="{{hotel.images[0]}}">
+                    
+                  </div>
+      
+                 
+              </div>
+             
+          </div>
+           
+            <div class="tm-history-text"> 
+              <h4 class="tm-history-title">{{hotel.name}}</h4>
+              <p class="tm-mb-p">{{hotel.description}} Thank you.</p>
+              <button *ngIf="router.url != '/room/detail/{{hotel.id}}' " type="button" class="btn btn-outline-info"  [routerLink]="['/room/detail', hotel.id]" >Show Info of Rooms</button>	
+              <br><br>
+             
+            </div>
+            
+          </div>
+        
+        </div>
+      </div>
+    </div>

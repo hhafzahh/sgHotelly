@@ -1,0 +1,113 @@
+<h1>booking componnent works!!</h1>
+
+<h5>Your Bookings</h5>
+<!----
+<div *ngFor ="let image of images" class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0" *ngFor ="let booking of bookings">
+      <div class="col-lg-4">
+        <img src="{{image}}"class="size" class="img-fluid rounded-start" alt="...">
+      </div>
+      
+      <div class="col-md-8" >
+        <div class="card-body">
+          <h5 class="card-title">Booking ID:{{booking._id}}</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+-->
+<div
+  *ngFor="let booking of bookings"
+  class="card mb-3"
+  style="max-width: 540px"
+>
+  <div class="row g-0">
+    <div class="col-lg-4">
+      <img
+        src="{{ booking.image }}"
+        class="size"
+        class="img-fluid rounded-start"
+        alt="..."
+      />
+    </div>
+
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Booking ID:{{ booking._id }}</h5>
+        <p class="card-text">Amount: {{ booking.amount }}.</p>
+        <p class="card-text">
+          <small class="text-muted"
+            >Booked on: {{ booking.bookingDate | date }}</small
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="col-md-4"></div>
+    <button
+      type="button"
+      (click)="view(booking._id)"
+      style="width: 130px; margin-right: 12px"
+      class="btn btn-outline-success"
+    >
+      View Receipt
+    </button>
+    <button
+      type="button"
+      (click)="deleteBooking(booking._id)"
+      class="btn btn-outline-danger"
+    >
+      Cancel Booking
+    </button>
+  </div>
+</div>
+
+<!-- creating a modal-->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">View your receipt</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p></p>
+
+    <p>Booking Id {{ results._id }}</p>
+
+    <p>Booking Amount: {{ results.amount }}</p>
+
+    <p>Username : {{ results.customerId }}</p>
+
+    <p>Full Name : {{ results.customerName }}</p>
+
+    <p>Email : {{ results.email }}</p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
+
+<form>
+  <div class="container-fluid pt-2 mb-5">
+    <div class="row">
+      <div class="col-md-8"></div>
+    </div>
+  </div>
+</form>

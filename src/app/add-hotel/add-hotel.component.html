@@ -1,0 +1,333 @@
+<p>add-hotel works!</p>
+<p>display of payment works!</p>
+
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()" >
+        <div class="row">
+          <div class="col-50">
+            <h3>Add Hotel</h3>
+            <label for="id"><i class="fa fa-user"></i> Id </label>
+            <input
+              type="text"
+              id="id"
+              formControlName="id"
+              name="hotelName"
+              placeholder="13"
+            />
+            <label for="fname"><i class="fa fa-user"></i> Hotel Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="hotelName"
+              name="hotelName"
+              placeholder="Cartlton Hotel Singapore"
+            />
+            <label for="hotelDescription"
+              ><i class="fa fa-envelope"></i> Description of the hotel</label
+            >
+            <input
+              type="text"
+              id="hotelDescription"
+              formControlName="hotelDescription"
+              name="hotelDescription"
+              placeholder="please enter desciption here.."
+            />
+
+            <label for="displayImage"
+              ><i class="fa fa-address-card-o"></i> Display Image Of
+              Hotel</label
+            >
+            <input
+              type="text"
+              id="displayImage"
+              formControlName="hotelDisplayImage"
+              name="displayImage"
+              placeholder="https://cf.bstatic.com/xdata/images/hotel/max1280x900/295668273.jpg?k-.."
+            />
+          
+
+            <label for="images"
+              ><i class="fa fa-address-card-o"></i> Images Of Hotel</label
+            >
+            <input
+              type="text"
+              id="image"
+              formControlName="image1"
+    
+              placeholder="https://cf.bstatic.com/xdata/images/hotel/max1280x900/295668273.jpg?k-.."
+            />
+            <input
+              type="text"
+              id="image"
+              formControlName="image2"
+          
+              placeholder="https://cf.bstatic.com/xdata/images/hotel/max1280x900/295668273.jpg?k-.."
+            />
+            <input
+              type="text"
+              id="image"
+              formControlName="image3"
+              
+              placeholder="https://cf.bstatic.com/xdata/images/hotel/max1280x900/295668273.jpg?k-.."
+            />
+            <input
+              type="text"
+              id="image"
+              formControlName="image4"
+ 
+              placeholder="https://cf.bstatic.com/xdata/images/hotel/max1280x900/295668273.jpg?k-.."
+            />
+            <input
+              type="text"
+              id="image"
+              formControlName="image5"
+              
+              placeholder="https://cf.bstatic.com/xdata/images/hotel/max1280x900/295668273.jpg?k-.."
+            />
+
+            <input
+              type="text"
+              id="image"
+              formControlName="image6"
+         
+              placeholder="https://cf.bstatic.com/xdata/images/hotel/max1280x900/295668273.jpg?k-.."
+            />
+
+            <input
+              type="text"
+              id="image"
+              formControlName="image7"
+            
+              placeholder="https://cf.bstatic.com/xdata/images/hotel/max1280x900/295668273.jpg?k-.."
+            />
+
+            <label for="adr"
+              ><i class="fa fa-address-card-o"></i> Location Of Hotel</label
+            >
+            <input
+              type="text"
+              id="adr"
+              name="address"
+              placeholder="542 W. 15th Street"
+            />
+            <label for="hyperLink" 
+            ><i class="fa fa-address-card-o"></i> Link Of Hotel Website</label
+          >
+          <input
+            type="text"
+            id="hyperLink"
+            formControlName="hyperLink"
+            placeholder="www.google.com"
+          />
+          <label for="keeperName"
+            ><i class="fa fa-address-card-o"></i> Name of keeper of
+            hotel</label
+          >
+          <input
+            type="text"
+            id="keeperName"
+            formControlName="keerperName"
+            placeholder="Mr Tan"
+          />
+
+          <label for="postalCode"
+            ><i class="fa fa-address-card-o"></i> Postal Code Of Hotel</label
+          >
+          <input
+            type="text"
+            id="postalCode"
+            formControlName="postalCode"
+            placeholder="1234567"
+          />
+          <label for="startingPrice"
+          ><i class="fa fa-address-card-o"></i> Starting Price Of Hotel</label
+        >
+        <input
+          type="text"
+          id="startingPrice"
+          formControlName="startingPrice"
+          placeholder="SGD 51"
+        />
+        <label for="totalrooms"
+        ><i class="fa fa-address-card-o"></i> Total rooms available in hotel</label
+      >
+      <input
+        type="number"
+        id="totalrooms"
+        formControlName="totalrooms"
+        placeholder="12"
+      />
+          </div>
+          <div class="col-50">
+        <h3>Room Details</h3>
+        <h6>Room 1</h6>
+        <label for="standardName"
+        ><i class="fa fa-address-card-o"></i> Name</label
+      >
+      <input
+        type="text"
+        id="standardName"
+        formControlName="standardName"
+        placeholder="12"
+      />
+      <label for="standardBed"
+        ><i class="fa fa-address-card-o"></i> Bed</label
+      >
+      <input
+        type="text"
+        id="standardBed"
+        formControlName="standardBed"
+        placeholder="12"
+      />
+      <label for="standardPrice"
+        ><i class="fa fa-address-card-o"></i> Price</label
+      >
+      <input
+        type="text"
+        id="standardPrice"
+        formControlName="standardPrice"
+        placeholder="SGD 12"
+      />
+      <label for="features"
+        ><i class="fa fa-address-card-o"></i> Features</label
+      >
+      <input
+        type="text"
+        id="standardFeature1"
+        formControlName="standardFeature1"
+        placeholder="12"
+      />
+
+      <input
+      type="text"
+      id="standardFeature2"
+      formControlName="standardFeature2"
+      placeholder="12"
+    />
+    <input
+    type="text"
+    id="standardFeature3"
+    formControlName="standardFeature3"
+    placeholder="12"
+  />
+  <input
+  type="text"
+  id="standardFeature4"
+  formControlName="standardFeature4"
+  placeholder="12"
+/>
+<input
+type="text"
+id="standardFeature5"
+formControlName="standardFeature5"
+placeholder="12"
+/>
+<input
+type="text"
+id="standardFeature6"
+formControlName="standardFeature6"
+placeholder="12"
+/>
+<input
+type="text"
+id="standardFeature7"
+formControlName="standardFeature7"
+placeholder="12"
+/>
+
+
+
+<h6>Room 2</h6>
+<label for="superiorName"
+><i class="fa fa-address-card-o"></i> Name</label
+>
+<input
+type="text"
+id="superiorName"
+formControlName="superiorName"
+placeholder="12"
+/>
+<label for="superiorBed"
+><i class="fa fa-address-card-o"></i> Bed</label
+>
+<input
+type="text"
+id="superiorBed"
+formControlName="superiorBed"
+placeholder="12"
+/>
+
+<label for="superiorPrice"
+><i class="fa fa-address-card-o"></i> Price</label
+>
+<input
+type="text"
+id="superiorPrice"
+formControlName="superiorPrice"
+placeholder="12"
+/>
+<label for="features"
+><i class="fa fa-address-card-o"></i> Features</label
+>
+<input
+type="text"
+id="superiorFeature1"
+formControlName="superiorFeature1"
+placeholder="12"
+/>
+
+<input
+type="text"
+id="superiorFeature2"
+formControlName="superiorFeature2"
+placeholder="12"
+/>
+<input
+type="text"
+id="superiorFeature3"
+formControlName="superiorFeature3"
+placeholder="12"
+/>
+<input
+type="text"
+id="superiorFeature4"
+formControlName="superiorFeature4"
+placeholder="12"
+/>
+<input
+type="text"
+id="superiorFeature5"
+formControlName="superiorFeature5"
+placeholder="12"
+/>
+<input
+type="text"
+id="superiorFeature6"
+formControlName="superiorFeature6"
+placeholder="12"
+/>
+<input
+type="text"
+id="superiorFeature7"
+formControlName="superiorFeature7"
+placeholder="12"
+/>
+    
+
+         
+</div>
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr" /> Shipping
+          address same as billing
+        </label>
+        <input type="submit" value="Add Hotel" class="btn" />
+      </form>
+</div>
+</div>
+</div>
+
+
+

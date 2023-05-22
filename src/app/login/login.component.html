@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" class="col d-flex justify-content-center">
+        <form
+          [formGroup]="myForm"
+          (ngSubmit)="onSubmit()"
+          class="form-container"
+          class="box"
+        >
+          <h1>Login</h1>
+          <p>
+            <input
+              class="text-muted"
+              formControlName="name"
+              id="name"
+              placeholder="Your name"
+              type="text"
+              required
+            />
+          </p>
+          <div>
+            <ng-container *ngFor="let validation of validationUserMessage.name">
+              <div
+                class="error_message"
+                *ngIf="
+                  myForm.get('name').hasError(validation.type) &&
+                  (myForm.get('name').dirty || myForm.get('name').touched)
+                "
+              >
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <p>
+            <input
+              formControlName="email"
+              class="text-muted"
+              id="email"
+              placeholder="Your email"
+              type="text"
+              required
+            />
+          </p>
+          <div>
+            <ng-container
+              *ngFor="let validation of validationUserMessage.email"
+            >
+              <div
+                class="error_message"
+                *ngIf="
+                  myForm.get('email').hasError(validation.type) &&
+                  (myForm.get('email').dirty || myForm.get('email').touched)
+                "
+              >
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+
+          <p>
+            <input
+              formControlName="password"
+              id="password"
+              class="text-muted"
+              type="password"
+              placeholder="Your password"
+              required
+            />
+            <ng-container
+              *ngFor="let validation of validationUserMessage.password"
+            >
+              <div
+                class="error_message"
+                *ngIf="
+                  myForm.get('password').hasError(validation.type) &&
+                  (myForm.get('password').dirty ||
+                    myForm.get('password').touched)
+                "
+              >
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </p>
+
+          <p>
+            <button
+              [disabled]="!myForm.valid"
+              type="button"
+              class="btn btn-primary"
+              type="submit"
+            >
+              Login
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
